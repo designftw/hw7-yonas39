@@ -54,6 +54,7 @@ globalThis.addEventListener("beforeunload", () => {
   localStorage.tasks = JSON.stringify(getData());
 });
 
+// Drag effect
 let dragged;
 
 function addTaskEventListeners(element) {

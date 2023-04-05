@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Exercise 5</title>
-	<link rel="stylesheet" href="writeup.css">
-</head>
-<body>
-	<!-- your html here -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 5</title>
+    <link rel="stylesheet" href="writeup.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.min.js"></script>
+    <script></script>
+  </head>
+  <body>
+    <!-- your html here -->
+
+    <h1>Password Toggle Bookmarklet</h1>
+    <p>Drag the link below to your bookmarks toolbar:</p>
+    <a
+      href="javascript:(function () {
+			var inputs = document.querySelectorAll('input');
+			inputs.forEach(function (input) {
+				if (
+					input.type === 'password' ||
+					input.getAttribute('data-toggle-password') === 'true'
+				) {
+					input.type = input.type === 'password' ? 'text' : 'password';
+					input.setAttribute(
+						'data-toggle-password',
+						input.type === 'password' ? 'false' : 'true'
+					);
+				}
+			});
+		})();"
+      >Toggle Passwords</a
+    >
+
+    <h2>Bookmarklet Code</h2>
+    <pre><code class="language-javascript">javascript:(function(){var inputs=document.querySelectorAll('input');inputs.forEach(function(input){if(input.type==='password'||input.getAttribute('data-toggle-password')==='true'){input.type=input.type==='password'?'text':'password';input.setAttribute('data-toggle-password',input.type==='password'?'false':'true');}})();</code></pre>
+
+    <h2>Tested URLs</h2>
+    <p>Try the bookmarklet on the following websites:</p>
+    <ol>
+      <li>
+        <a href="https://www.facebook.com" target="_blank"
+          >https://www.facebook.com
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com" target="_blank"
+          >https://www.twitter.com</a
+        >
+      </li>
+      <li>
+        <a href="https://www.linkedin.com" target="_blank"
+          >https://www.linkedin.com</a
+        >
+      </li>
+      <li>
+        <a href="https://www.github.com" target="_blank"
+          >https://www.github.com</a
+        >
+      </li>
+      <li>
+        <a href="https://www.reddit.com" target="_blank"
+          >https://www.reddit.com</a
+        >
+      </li>
+    </ol>
+  </body>
 </html>

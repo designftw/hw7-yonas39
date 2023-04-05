@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.min.js"></script>
-    <script></script>
+    <!-- <script src="bookmarklet.js"></script> -->
   </head>
   <body>
     <!-- your html here -->
@@ -37,8 +37,16 @@
     >
 
     <h2>Bookmarklet Code</h2>
-    <pre><code class="language-javascript">javascript:(function(){var inputs=document.querySelectorAll('input');inputs.forEach(function(input){if(input.type==='password'||input.getAttribute('data-toggle-password')==='true'){input.type=input.type==='password'?'text':'password';input.setAttribute('data-toggle-password',input.type==='password'?'false':'true');}})();</code></pre>
-
+    <!-- <pre><code class="language-javascript">javascript:(function(){var inputs=document.querySelectorAll('input');inputs.forEach(function(input){if(input.type==='password'||input.getAttribute('data-toggle-password')==='true'){input.type=input.type==='password'?'text':'password';input.setAttribute('data-toggle-password',input.type==='password'?'false':'true');}})();</code></pre> -->
+    <pre><code class="language-javascript">javascript:(function(){
+      var inputs = document.querySelectorAll('input');
+      inputs.forEach(function(input) {
+        if (input.type === 'password' || input.getAttribute('data-toggle-password') === 'true') {
+          input.type = input.type === 'password' ? 'text' : 'password';
+          input.setAttribute('data-toggle-password', input.type === 'password' ? 'false' : 'true');
+        }
+      })();
+    </code></pre>
     <h2>Tested URLs</h2>
     <p>Try the bookmarklet on the following websites:</p>
     <ol>

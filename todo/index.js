@@ -17,8 +17,36 @@ if (localStorage.tasks) {
   addItem();
 }
 
+// Arrow keys to move between tasks
+dom.tasksList.addEventListener("keyup", (e) => {
+  if (!e.target.matches("input.title")) {
+    return;
+  }
+
+  let li = e.target.closest("li");
+
+  if (e.key === "Enter") {
+    addItem();
+  } else if (e.key === "Backspace" && e.target.previousValue === "") {
+    li.querySelector(".delete").click();
+  }
+});
+
+// Keyboard arrow down press!
 dom.tasksList.addEventListener("keydown", (e) => {
-  // ...
+  if (!e.target.matches("input.title")) {
+    return;
+  }
+
+  let li = e.target.closest("li");
+
+  if (e.key === "Backspace") {
+    e.target.previousValue = e.target.value;
+  } else if (e.key === "ArrowUp") {
+    focusTask(li.previousElementSibling ?? dom.tasksList.lastElementChild);
+  } else if (e.key === "ArrowDown") {
+    focusTask(li.nextElementSibling ?? dom.tasksList.firstElementChild);
+  }
 });
 
 // Store data when page is closed
